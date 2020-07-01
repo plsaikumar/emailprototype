@@ -1,26 +1,38 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import SideBar from "./components/sidebar/SideBar";
+import Editor from "./components/editor/Editor";
+import Iframe from "./components/iframe/Iframe"
+import { Container, Row, Col } from 'reactstrap';
+import "./App.css";
 
-function App() {
+const App = () => {
+  const [isOpen, setSidebarOpen] = useState(true);
+  const toggleSidebar = () => setSidebarOpen(!isOpen);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <SideBar toggle={toggleSidebar} isOpen={isOpen} />
+
+      <Container>
+        <Row  >
+          <Col xs="6" className="divider">
+            <div>
+              <Editor
+                toggleSidebar={toggleSidebar}
+
+              />
+
+            </div>
+          </Col>
+          <Col xs="6" >
+            <Iframe />
+          </Col>
+        </Row>
+
+      </Container>
     </div>
   );
-}
+};
 
 export default App;

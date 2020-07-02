@@ -9,7 +9,6 @@ import "./App.css";
 const App = () => {
   const [isOpen, setSidebarOpen] = useState(true);
   const toggleSidebar = () => setSidebarOpen(!isOpen);
-<<<<<<< HEAD
   const [stateData, setData] = useState(() => ({
     preheader: '',
     image: 'https://www.w3schools.com/images/w3schools_green.jpg',
@@ -39,12 +38,6 @@ const App = () => {
   return (
     <div className="App">
       <SideBar toggle={toggleSidebar} getImage={getImage} stateData={stateData} isOpen={isOpen} />
-=======
-
-  return (
-    <div className="App">
-      <SideBar toggle={toggleSidebar} isOpen={isOpen} />
->>>>>>> 3070c301e9aff58b55dcc1b4f2247ed3c75ec4c5
 
       <Container>
         <Row  >
@@ -52,21 +45,13 @@ const App = () => {
             <div>
               <Editor
                 toggleSidebar={toggleSidebar}
-<<<<<<< HEAD
                 handleInputChange={handleInputChange} stateData={stateData}
-=======
-
->>>>>>> 3070c301e9aff58b55dcc1b4f2247ed3c75ec4c5
               />
 
             </div>
           </Col>
           <Col xs="6" >
-<<<<<<< HEAD
             <Iframe stateData={stateData} />
-=======
-            <Iframe />
->>>>>>> 3070c301e9aff58b55dcc1b4f2247ed3c75ec4c5
           </Col>
         </Row>
 
@@ -75,8 +60,4 @@ const App = () => {
   );
 };
 
-<<<<<<< HEAD
 export default App;
-=======
-export default App;
->>>>>>> 3070c301e9aff58b55dcc1b4f2247ed3c75ec4c5

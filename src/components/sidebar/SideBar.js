@@ -6,15 +6,17 @@ import { Link } from "react-router-dom";
 
 import SideBarMenu from "./SideBarMenu";
 
-<<<<<<< HEAD
-const arrayList = ['PreHeader', 'Header', 'Header With Logo', 'Primaries', 'Secondaries', 'Blocks', 'Tertiaries']
+const arrayList = [
+  { "name": 'PreHeader', 'image': 'https://www.w3schools.com/images/w3schools_green.jpg' },
+  { 'name': 'Header', 'image': 'https://www.w3schools.com/images/w3schools_green.jpg' },
+  { 'name': 'Header With Logo', 'image': 'https://www.w3schools.com/images/w3schools_green.jpg' },
+  { 'name': 'Primaries', 'image': 'https://www.w3schools.com/images/w3schools_green.jpg' },
+  { 'name': 'Secondaries', 'image': 'https://www.w3schools.com/images/w3schools_green.jpg' },
+  { 'name': 'Blocks', 'image': 'https://www.w3schools.com/images/w3schools_green.jpg' },
+  { 'name': 'Tertiaries', 'image': 'https://www.w3schools.com/images/w3schools_green.jpg' }]
+
 
 const SideBar = ({ isOpen, toggle, stateData, getImage }) => {
-=======
-
-
-const SideBar = ({ isOpen, toggle }) => {
->>>>>>> 3070c301e9aff58b55dcc1b4f2247ed3c75ec4c5
 
   return (
     <div className={classNames("sidebar", { "is-open": isOpen })}>
@@ -23,18 +25,8 @@ const SideBar = ({ isOpen, toggle }) => {
         <Nav vertical className="list-unstyled pb-3">
           <br /> <br />
 
-<<<<<<< HEAD
-          <SideBarMenu title={arrayList} stateData={stateData} getImage={getImage} />
+          <SideBarMenu arrayList={arrayList} stateData={stateData} getImage={getImage} />
 
-=======
-          <SideBarMenu title="PreHeader" />
-          <SideBarMenu title="Header" />
-          <SideBarMenu title="Header With Logo" />
-          <SideBarMenu title="Primaries" />
-          <SideBarMenu title="Secondaries" />
-          <SideBarMenu title="Blocks" />
-          <SideBarMenu title="Tertiaries" />
->>>>>>> 3070c301e9aff58b55dcc1b4f2247ed3c75ec4c5
 
         </Nav>
       </div>
@@ -42,8 +34,4 @@ const SideBar = ({ isOpen, toggle }) => {
   );
 };
 
-<<<<<<< HEAD
 export default SideBar;
-=======
-export default SideBar;
->>>>>>> 3070c301e9aff58b55dcc1b4f2247ed3c75ec4c5

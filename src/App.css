@@ -1,0 +1,56 @@
+.App {
+  display: flex;
+  width: 100%;
+  align-items: stretch;
+}
+body {
+  font-family: "Poppins", sans-serif;
+  background: #ffffff;
+}
+.divider{
+  border-right:1px solid #0c0101;
+}
+.sidebar {
+  min-width: 250px;
+  max-width: 300px;
+  background: white;
+  color: black;
+  margin-left: -300px;
+  transition: all 0.5s;
+  border-right: 1px solid black;
+}
+
+.sidebar.is-open {
+  margin-left: 0;
+  transition: 0.5s;
+}
+
+.menu-open {
+  background:white;
+}
+
+.nav-item:hover {
+  color: black;
+  background: #fff;
+}
+
+.items-menu {
+  color: black;
+  background: white;
+}
+
+li a.dropdown-toggle::after {
+  display: inline-flex;
+  position:sticky;
+  left: 250px;
+}
+
+.editor {
+  padding: 20px;
+  margin-left: 0;
+  height: 100vh;
+}
+.form-style{
+padding-top: 20px;
+}
+

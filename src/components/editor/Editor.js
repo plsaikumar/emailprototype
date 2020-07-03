@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import classNames from "classnames";
 import { Container, Button } from "reactstrap";
 import { FaChevronRight } from "react-icons/fa";
@@ -21,7 +21,7 @@ const Editor = ({ toggleSidebar, handleInputChange, stateData }) => {
 
                         <FormGroup row>
                             <Label for="preHeader" sm={2}>{data.name}</Label>
-                            <Col sm={10}>
+                            <Col sm={9}>
                                 <Input
                                     type="text"
                                     name={data.name}

@@ -6,6 +6,12 @@ import { Link } from "react-router-dom";
 
 import SideBarMenu from "./SideBarMenu";
 
+
+
+
+
+
+
 const arrayList = [
   { name: 'PreHeader', image: 'https://vectorlogoseek.com/wp-content/uploads/2019/07/genpact-vector-logo.png' },
   { name: 'Header', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRdfuQvrR-soudN2gPYn9reu60s784LtyCxNw&usqp=CAU' },

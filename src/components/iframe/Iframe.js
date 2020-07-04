@@ -1,21 +1,11 @@
 import React from "react";
 import classNames from "classnames";
-import { Container } from "reactstrap";
+import { Container, Button } from "reactstrap";
 
 
-const Iframe = ({ stateData }) => {
+function ViewComponent({ data }) {
+    return <iframe srcdoc={`<p>${data.input1 || ""} ${data.input2 || ""}</p>`} src="demo_iframe_srcdoc.htm"></iframe>
 
-const iframe = '<iframe src="https://www.exmaple.com/show?data..." width="370" height="450"></iframe>' ;
-
-return (<Container
-        className={classNames("editor")}
-    >
-     <div dangerouslySetInnerHTML={{ __html: iframe }} />
-      <span> {stateData.preheader}</span>
-
-
-    </Container>
-)
 }
 
-export default Iframe;
+export default ViewComponent;

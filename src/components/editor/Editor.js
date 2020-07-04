@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import classNames from "classnames";
 import { Container, Button } from "reactstrap";
 import { FaChevronRight } from "react-icons/fa";
 import { Col, Form, FormGroup, Label, Input } from 'reactstrap';
-const Editor = ({ toggleSidebar, handleInputChange, stateData }) => {
+import InputComponents from '../inputcomponents/input_components'
+
+const Editor = ({ toggleSidebar, handleInputChange, stateData, selectedComponent, deleteComponent }) => {
 
     return (
 
@@ -15,24 +17,10 @@ const Editor = ({ toggleSidebar, handleInputChange, stateData }) => {
                 <FaChevronRight />
             </Button>
             <span>&nbsp;&nbsp;&nbsp;Editor</span>
-            {stateData && stateData.arrayData.map((data, i) => (
-                <div className="form-style">
-                    <Form>
+            {selectedComponent.map((type) => {
+                return <InputComponents type={type} handleInputChange={handleInputChange} deleteComponent={deleteComponent} />
+            })}
 
-                        <FormGroup row>
-                            <Label for="preHeader" sm={2}>{data.name}</Label>
-                            <Col sm={9}>
-                                <Input
-                                    type="text"
-                                    name={data.name}
-                                    id={data.name}
-                                    value={stateData.name}
-                                    placeholder={data.name}
-                                    onChange={handleInputChange} />
-                            </Col>
-                        </FormGroup>
-                    </Form>
-                </div>))}
         </Container>
     );
 }

@@ -27,6 +27,7 @@ body {
 
 .menu-open {
   background:white;
+
 }
 
 .nav-item:hover {
@@ -37,6 +38,7 @@ body {
 .items-menu {
   color: black;
   background: white;
+  
 }
 
 li a.dropdown-toggle::after {

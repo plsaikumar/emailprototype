@@ -5,9 +5,9 @@ import Editor from "./components/editor/Editor";
 import Iframe from "./components/iframe/Iframe"
 import { Container, Row, Col } from 'reactstrap';
 import "./App.css";
+import { uuid } from "uuidv4";
 
 const arrayList = [
-
   {
     title: 'PreHeader',
     components: [
@@ -15,6 +15,7 @@ const arrayList = [
       { name: "preheader_2", image: 'https://pbs.twimg.com/media/DKLdmn8VYAEeUdd.jpg' },
     ]
   },
+
   {
     title: 'Header',
     components: [
@@ -67,19 +68,20 @@ const App = () => {
   const [stateData, setData] = useState(() => ({
     selectedComponent: [],
     viewData: {},
-    loading : false
+    loading: false
   }));
 
   const handleSelectComponent = (type) => () => {
-    console.log(stateData.selectedComponent)
-    const { selectedComponent } = stateData
-    setData({...stateData, loading :true})
-    if (!selectedComponent.includes(type) || type === 'header_1') {
-      setData({ ...stateData, selectedComponent: [...selectedComponent, type] })
+    const { selectedComponent, viewData } = stateData
+    if (!selectedComponent.includes(type)) {
+      viewData[type] = { id: uuid() }
+      setData({ ...stateData })
     }
+    console.log(stateData.selectedComponent,"check handleselect")
   }
 
   const deleteComponent = (type) => () => {
+    console.log(type, "delete comp",stateData.selectedComponent)
     const { selectedComponent } = stateData
     setData({
       ...stateData, selectedComponent: selectedComponent.filter((each) => {
@@ -88,15 +90,29 @@ const App = () => {
     })
   }
 
-  const onInputChange = (e) => {
+  const onInputChange = (type) => (e) => {
     const { name, value } = e.target;
     console.log(name, value, 'check name , value');
     const { viewData } = stateData;
-    viewData[name] = value;
+    viewData[type][name] = value;
     setData({ ...stateData })
   }
-
-
+  const imageUpload = (type) => (e) => {
+    const { viewData } = stateData
+    e.preventDefault();
+    let file = e.target.files[0];
+    if (!file) {
+      return;
+    }
+    if (!file.type.includes("image")) {
+      alert("Upload Valid File")
+      return;
+    }
+    viewData[type]['imageUrl'] = URL.createObjectURL(file);
+    viewData[type]['imageFile'] = file
+    setData({ ...stateData })
+  };
+  const selectedComponents = Object.keys(stateData.viewData);
   return (
     <div className="App">
       <SideBar handleSelectComponent={handleSelectComponent} stateData={stateData} isOpen={isOpen} arrayList={arrayList} />
@@ -107,9 +123,11 @@ const App = () => {
             <div>
               <Editor
                 toggleSidebar={toggleSidebar}
-                selectedComponent={stateData.selectedComponent || []}
+                selectedComponent={selectedComponents || []}
+                data={stateData.viewData}
                 handleInputChange={onInputChange} stateData={stateData}
                 deleteComponent={deleteComponent}
+                imageUpload={imageUpload}
               />
 
             </div>

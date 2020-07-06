@@ -5,9 +5,10 @@ import { FaChevronRight } from "react-icons/fa";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrash } from '@fortawesome/free-solid-svg-icons'
 import InputComponents from '../inputcomponents/input_components';
-const Editor = ({ toggleSidebar, stateData, handleInputChange, selectedComponent, deleteComponent }) => {
+const Editor = ({ data, toggleSidebar, stateData, handleInputChange,imageUpload, deleteComponent }) => {
     const [collapsed, setCollapsed] = useState(true);
     const toggle = () => setCollapsed(!collapsed);
+    const selectedComponents = Object.keys(data)
     return (
         <Container
             fluid
@@ -17,10 +18,10 @@ const Editor = ({ toggleSidebar, stateData, handleInputChange, selectedComponent
                 <FaChevronRight />
             </Button>
             <span>&nbsp;&nbsp;&nbsp;Editor</span>
-            {selectedComponent.map((type) => {
+            {selectedComponents.map((type) => {
 
                 return (
-              <InputComponents type={type} stateData={stateData} handleInputChange={handleInputChange} deleteComponent={deleteComponent} />
+                    <InputComponents data={data[type]} imageUpload={imageUpload} type={type} handleInputChange={handleInputChange} deleteComponent={deleteComponent} />
                     // <div>
                     //     <Button onClick={toggle} style={{ backgroundColor: "white", color: "black", alignContent: "left" }} sm={{ size: 2 }} block>{type}
 

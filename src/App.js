@@ -75,13 +75,12 @@ const App = () => {
     const { selectedComponent, viewData } = stateData
     if (!selectedComponent.includes(type)) {
       viewData[type] = { id: uuid() }
+      selectedComponent.push(type)
       setData({ ...stateData })
     }
-    console.log(stateData.selectedComponent,"check handleselect")
   }
 
   const deleteComponent = (type) => () => {
-    console.log(type, "delete comp",stateData.selectedComponent)
     const { selectedComponent } = stateData
     setData({
       ...stateData, selectedComponent: selectedComponent.filter((each) => {

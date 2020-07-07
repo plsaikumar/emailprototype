@@ -6,7 +6,6 @@ import CKEditor from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 function InputComponents(props) {
     const { type, deleteComponent, handleInputChange, data, imageUpload } = props
-    console.log(data, 'check data', type)
     const returnComponent = (inputType) => {
         switch (inputType) {
             case 'preheader_1': return <div>
@@ -15,10 +14,10 @@ function InputComponents(props) {
                     <FontAwesomeIcon icon={faTrash} style={{ cursor: "pointer" }} style={{ cursor: "pointer" }} style={{ cursor: "pointer" }} onClick={deleteComponent('preheader_1')} sm={4} /> <br />
                 </Col>
                 <Col sm={{ size: 11, offset: 1 }}>
-                    {/* <CKEditor
+                    <CKEditor
                         editor={ClassicEditor}
                         data="<p>Hello from CKEditor 5!</p>"
-
+                        
                         onInit={editor => {
                             // You can store the "editor" and use when it is needed.
                             console.log('Editor is ready to use!', editor);
@@ -36,8 +35,8 @@ function InputComponents(props) {
 
                         }}
                     />
- */}
-                    <Input placeholder="PreHeader " name="preheader_1_input_1" onChange={handleInputChange(type)} /> 
+
+                    {/* <Input placeholder="PreHeader " name="preheader_1_input_1" onChange={handleInputChange(type)} /> */}
                     <Input placeholder="View Online" name="preheader_1_input_2" onChange={handleInputChange(type)} />
                 </Col>
             </div>
